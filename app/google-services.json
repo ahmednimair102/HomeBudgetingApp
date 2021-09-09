@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "906572614367",
+    "project_id": "homebudgetingapp",
+    "storage_bucket": "homebudgetingapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906572614367:android:27c522a73bfcaf3576b76a",
+        "android_client_info": {
+          "package_name": "com.ahmed.homebudgetingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906572614367-2l5amgm851rsfbuj3c70cikpgtisqocd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc-XQsiUgKLObVpg35TFB4UwSZuf2YzQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906572614367-2l5amgm851rsfbuj3c70cikpgtisqocd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
