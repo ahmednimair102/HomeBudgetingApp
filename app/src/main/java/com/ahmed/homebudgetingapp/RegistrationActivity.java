@@ -1,8 +1,5 @@
 package com.ahmed.homebudgetingapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText email, password;
+    private EditText email, password , userName , phoneNumber;
     private Button registerBtn;
     private TextView registerQn;
 
@@ -33,6 +33,8 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
 
 
+        userName = findViewById(R.id.userName);
+        phoneNumber = findViewById(R.id.phoneNumber);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         registerBtn = findViewById(R.id.registerBtn);
@@ -54,9 +56,17 @@ public class RegistrationActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userNameString = userName.getText().toString();
+                String phoneString = phoneNumber.getText().toString();
                 String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
 
+                if (TextUtils.isEmpty(userNameString)){
+                    email.setError("User Name is required");
+                }
+                if (TextUtils.isEmpty(phoneString)){
+                    email.setError("Phone Number is required");
+                }
                 if (TextUtils.isEmpty(emailString)){
                     email.setError("Email is required");
                 }
