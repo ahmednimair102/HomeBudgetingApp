@@ -1,7 +1,5 @@
 package com.ahmed.homebudgetingapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,11 +9,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     private static int Splash = 3000;
     Animation animation;
-    private ImageView appLogo;
+    private ImageView imageView;
     private TextView appName;
 
     @Override
@@ -26,10 +26,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         animation = AnimationUtils.loadAnimation(this ,R.anim.animation);
 
-        appLogo = findViewById(R.id.appLogo);
+        imageView = findViewById(R.id.imageView);
         appName = findViewById(R.id.appName);
 
-        appLogo.setAnimation(animation);
+        imageView.setAnimation(animation);
         appName.setAnimation(animation);
 
         new Handler().postDelayed(new Runnable() {

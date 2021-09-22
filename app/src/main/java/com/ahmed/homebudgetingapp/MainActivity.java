@@ -37,11 +37,11 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private TextView weekSpendingTv, budgetTv, todaySpendingTv,remainingBudgetTv,monthSpendingTv;
+    private TextView weekSpendingTv, budgetTv, todaySpendingTv, remainingBudgetTv, monthSpendingTv;
 
     private CardView budgetCardView, todayCardView, homeBtn, weekCardView, monthCardView, historyCardView;
 
-    // private ImageView weekBtnImageView, todayBtnImageView, monthBtnImageView, analyticsImageView; /*budgetBtnImageView ;*/
+    //private ImageView weekBtnImageView, todayBtnImageView, monthBtnImageView, analyticsImageView , budgetBtnImageView ;
 
     private CardView analyticsCardView;
 
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int totalAmountMonth = 0;
     private int totalAmountBudget = 0;
-    private  int totalAmountBudgetB = 0;
-    private  int totalAmountBudgetC = 0;
+    private int totalAmountBudgetB = 0;
+    private int totalAmountBudgetC = 0;
 
 
     @Override
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, WeekSpendingActivity.class);
+                intent.putExtra("type","month");
                 startActivity(intent);
             }
         });
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, WeekSpendingActivity.class);
+                intent.putExtra("type","week");
                 startActivity(intent);
             }
         });
@@ -138,16 +140,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if (snapshot.exists() && snapshot.getChildrenCount()>0){
-                    for (DataSnapshot ds :  snapshot.getChildren()){
-                        Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                if (snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        Map<String, Object> map = (Map<String, Object>) ds.getValue();
                         Object total = map.get("amount");
                         int pTotal = Integer.parseInt(String.valueOf(total));
-                        totalAmountBudgetB+=pTotal;
+                        totalAmountBudgetB += pTotal;
                     }
                     totalAmountBudgetC = totalAmountBudgetB;
                     personalRef.child("budget").setValue(totalAmountBudgetC);
-                }else {
+                } else {
                     personalRef.child("budget").setValue(0);
                     Toast.makeText(MainActivity.this, "Please Set a BUDGET ", Toast.LENGTH_LONG).show();
                 }
@@ -173,17 +175,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if (snapshot.exists() && snapshot.getChildrenCount()>0){
-                    for (DataSnapshot ds :  snapshot.getChildren()){
-                        Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                if (snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        Map<String, Object> map = (Map<String, Object>) ds.getValue();
                         Object total = map.get("amount");
                         int pTotal = Integer.parseInt(String.valueOf(total));
-                        totalAmountBudget+=pTotal;
-                        budgetTv.setText("$ "+String.valueOf(totalAmountBudget));
+                        totalAmountBudget += pTotal;
+                        budgetTv.setText("$ " + String.valueOf(totalAmountBudget));
                     }
-                }else {
-                    totalAmountBudget=0;
-                    budgetTv.setText("$ "+String.valueOf(0));
+                } else {
+                    totalAmountBudget = 0;
+                    budgetTv.setText("$ " + String.valueOf(0));
 
 
                 }
@@ -199,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void getTodaySpentAmount(){
+    private void getTodaySpentAmount() {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Calendar cal = Calendar.getInstance();
         String date = dateFormat.format(cal.getTime());
@@ -210,12 +212,12 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 int totalAmount = 0;
-                for (DataSnapshot ds :  dataSnapshot.getChildren()){
-                    Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
                     Object total = map.get("amount");
                     int pTotal = Integer.parseInt(String.valueOf(total));
-                    totalAmount+=pTotal;
-                    todaySpendingTv.setText("$ "+ totalAmount);
+                    totalAmount += pTotal;
+                    todaySpendingTv.setText("$ " + totalAmount);
                 }
                 personalRef.child("today").setValue(totalAmount);
             }
@@ -227,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getMonthSpentAmount(){
+    private void getMonthSpentAmount() {
         MutableDateTime epoch = new MutableDateTime();
         epoch.setDate(0); //Set to Epoch time
         DateTime now = new DateTime();
@@ -239,12 +241,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int totalAmount = 0;
-                for (DataSnapshot ds :  dataSnapshot.getChildren()){
-                    Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
                     Object total = map.get("amount");
                     int pTotal = Integer.parseInt(String.valueOf(total));
-                    totalAmount+=pTotal;
-                    monthSpendingTv.setText("$ "+ totalAmount);
+                    totalAmount += pTotal;
+                    monthSpendingTv.setText("$ " + totalAmount);
 
                 }
                 personalRef.child("month").setValue(totalAmount);
@@ -259,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getWeekSpentAmount(){
+    private void getWeekSpentAmount() {
         MutableDateTime epoch = new MutableDateTime();
         epoch.setDate(0); //Set to Epoch time
         DateTime now = new DateTime();
@@ -271,12 +273,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int totalAmount = 0;
-                for (DataSnapshot ds :  dataSnapshot.getChildren()){
-                    Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
                     Object total = map.get("amount");
                     int pTotal = Integer.parseInt(String.valueOf(total));
-                    totalAmount+=pTotal;
-                    weekSpendingTv.setText("$ "+ totalAmount);
+                    totalAmount += pTotal;
+                    weekSpendingTv.setText("$ " + totalAmount);
                 }
                 personalRef.child("week").setValue(totalAmount);
             }
@@ -288,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getSavings(){
+    private void getSavings() {
         personalRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull final DataSnapshot snapshot) {
@@ -329,8 +331,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.account){
-            Intent intent  = new Intent(MainActivity.this, AccountActivity.class);
+        if (item.getItemId() == R.id.account) {
+            Intent intent = new Intent(MainActivity.this, AccountActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

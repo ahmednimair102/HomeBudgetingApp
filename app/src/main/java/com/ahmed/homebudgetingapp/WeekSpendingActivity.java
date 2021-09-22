@@ -78,10 +78,6 @@ public class WeekSpendingActivity extends AppCompatActivity {
                 readMonthSpendingItems();
             }
         }
-
-
-
-
     }
 
     private void readMonthSpendingItems() {
@@ -111,7 +107,7 @@ public class WeekSpendingActivity extends AppCompatActivity {
                     int pTotal = Integer.parseInt(String.valueOf(total));
                     totalAmount += pTotal;
 
-                    totalWeekAmountTextView.setText("Total Month's Spending: $"+totalAmount);
+                     totalWeekAmountTextView.setText("Total Month's Spending: $"+totalAmount);
 
 
                 }
@@ -169,5 +165,4 @@ public class WeekSpendingActivity extends AppCompatActivity {
         });
 
     }
-
 }
