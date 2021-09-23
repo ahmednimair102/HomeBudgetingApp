@@ -4,9 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_add.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_analytics.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_history.xml" value="0.21851851851851853" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_house.xml" value="0.21851851851851853" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_lock.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_more.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_person.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_person_account.xml" value="0.21851851851851853" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/ic_personalcare.xml" value="0.21851851851851853" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/drawable/tablecolor.xml" value="0.21851851851851853" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/layout/activity_account.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/layout/activity_budget.xml" value="0.13269927536231885" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/HomeBudgetingApp/app/src/main/res/layout/activity_choose_analytic.xml" value="0.1272644927536232" />

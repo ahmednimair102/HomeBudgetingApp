@@ -49,9 +49,8 @@ public class WeekSpendingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_spending);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Week Spending");
+
+
         totalWeekAmountTextView = findViewById(R.id.totalWeekAmountTextView);
         progressBar = findViewById(R.id.progressBar);
         recyclerView = findViewById(R.id.recyclerView);
@@ -81,6 +80,10 @@ public class WeekSpendingActivity extends AppCompatActivity {
     }
 
     private void readMonthSpendingItems() {
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Month Spending");
+
         MutableDateTime epoch = new MutableDateTime();
         epoch.setDate(0);
         DateTime now = new DateTime();
@@ -123,6 +126,10 @@ public class WeekSpendingActivity extends AppCompatActivity {
     }
 
     private void readWeekSpendingItems() {
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Week Spending");
 
         MutableDateTime epoch = new MutableDateTime();
         epoch.setDate(0);

@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Home Budgeting App"
-        android:textColor="@color/black"
+        android:textColor="#FB8C00"
         android:textSize="20sp"
         android:textStyle="bold" />
 
